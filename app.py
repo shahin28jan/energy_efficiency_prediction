@@ -26,14 +26,13 @@ def predict_datapoint():
             roof_area = float(request.form.get('roof_area')),
             overall_height = float(request.form.get('overall_height')),
             glazing_area = float(request.form.get('glazing_area')),
-            glazing_area_distribution = float(request.form.get('glazing_area_distribution')),
-            
+            glazing_area_distribution = float(request.form.get('glazing_area_distribution'))     
         )
         final_new_data=data.get_data_as_dataframe()
         predict_pipeline=PredictPipeline()
         pred=predict_pipeline.predict(final_new_data)
 
-        result=round(pred[0],2)
+        result=pred
 
         return render_template('result.html',final_result=result)
 

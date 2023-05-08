@@ -27,7 +27,7 @@ class DataTransformation:
             # columns should be scaled because all columns are numeric
             
             cols = ['relative_compactness', 'surface_area', 'wall_area', 'roof_area','overall_height',
-                               'glazing_area', 'glazing_area_distribution']
+                    'glazing_area', 'glazing_area_distribution']
             
             
             
@@ -67,13 +67,13 @@ class DataTransformation:
 
             preprocessing_obj = self.get_data_transformation_object()
 
-            target_column_name = 'cooling_load'
-            drop_columns = [target_column_name,'heating_load']
+            target_column_name =['heating_load', 'cooling_load']
+            drop_columns = [target_column_name]
 
-            input_feature_train_df = train_df.drop(labels=drop_columns,axis=1)
+            input_feature_train_df = train_df.drop(labels=['heating_load', 'cooling_load'],axis=1)
             target_feature_train_df=train_df[target_column_name]
 
-            input_feature_test_df=test_df.drop(labels=drop_columns,axis=1)
+            input_feature_test_df=test_df.drop(labels=['heating_load', 'cooling_load'],axis=1)
             target_feature_test_df=test_df[target_column_name]
             
             ## Trnasformating using preprocessor obj
