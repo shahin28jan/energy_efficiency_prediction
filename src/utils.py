@@ -31,16 +31,18 @@ def evaluate_model(X_train,y_train,X_test,y_test,models):
             
 
             # Predict Testing data
+#            y_train_pred = model.predict(X_train)
             y_test_pred =model.predict(X_test)
 
             # Get R2 scores for train and test data
-            #train_model_score = r2_score(ytrain,y_train_pred)
+            #train_model_score = r2_score(y_train,y_train_pred)
             test_model_score = r2_score(y_test,y_test_pred)
 
+            #report[list(models.keys())[i]] =  train_model_score
             report[list(models.keys())[i]] =  test_model_score
 
         return report
-
+        
     except Exception as e:
         logging.info('Exception occured during model training')
         raise CustomException(e,sys)
