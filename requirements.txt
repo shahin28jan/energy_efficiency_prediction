@@ -10,4 +10,5 @@ Jinja2
 MarkupSafe
 Werkzeug
 click
+env
 -e .
